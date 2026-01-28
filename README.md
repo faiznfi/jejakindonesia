@@ -105,7 +105,7 @@ Want to run this project on your local machine? Follow these steps.
 
 | Mobile View (Bottom Sheet) | Desktop View (Floating) |
 |:--------------------------:|:-----------------------:|
-| <img src="https://via.placeholder.com/300x600?text=Mobile+View" width="250"> | <img src="https://via.placeholder.com/600x400?text=Desktop+View" width="400"> |
+| <img src="https://github.com/faiznfi/jejakindonesia/blob/main/screenshots/mobile.png?raw=true)" width="250"> | <img src="https://github.com/faiznfi/jejakindonesia/blob/main/screenshots/desktop.png?raw=true)" width="400"> |
 
 > *Note: Replace the placeholder images above with your actual application screenshots.*
 
