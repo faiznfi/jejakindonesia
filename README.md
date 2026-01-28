@@ -5,9 +5,9 @@
     <strong>Aplikasi peta interaktif untuk melacak jejak perjalanan keliling Nusantara.</strong>
   </p>
   <p>
-    <a href="https://YOUR-USERNAME.github.io/REPO-NAME/">View Live Demo 🚀</a>
+    <a href="https://faiznfi.github.io/jejakindonesia/">View Live Demo 🚀</a>
     ·
-    <a href="https://github.com/YOUR-USERNAME/REPO-NAME/issues">Report Bug 🐛</a>
+    <a href="https://github.com/faiznfi/jejakindonesia/issues">Report Bug 🐛</a>
   </p>
   <p>
     <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
@@ -67,7 +67,7 @@ Ingin menjalankan proyek ini di komputermu? Ikuti langkah mudah ini.
 
 1.  **Clone repo ini**
     ```sh
-    git clone [https://github.com/USERNAME-KAMU/NAMA-REPO.git](https://github.com/USERNAME-KAMU/NAMA-REPO.git)
+    git clone [https://github.com/faiznfi/jejakindonesia.git](https://github.com/faiznfi/jejakindonesia.git)
     ```
 2.  **Buka folder**
     Masuk ke folder proyek.
@@ -82,9 +82,8 @@ Distributed under the **MIT License**. See `LICENSE` file for more information.
 
 ## 👤 Contact
 
-**Author:** [Nama Kamu]  
-**Instagram:** [@username_ig_kamu]  
-**GitHub:** [github.com/username-kamu](https://github.com/username-kamu)
+**Author:** [Faiz Insani]   
+**GitHub:** [github.com/faiznfi](https://github.com/faiznfi)
 
 <div align="center">
   <small>Dibuat dengan ❤️ untuk Traveler Indonesia 🇮🇩</small>
