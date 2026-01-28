@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="author" content="Faiz Insani">
+    <meta name="copyright" content="Laveapp @2025">
+    <meta name="description" content="Peta interaktif jejak perjalanan keliling Indonesia">
+    <title>Jejak Indonesia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@mapbox/leaflet-pip@latest/leaflet-pip.min.js"></script>
+</head>
+<body>
+
+    <div id="loading">
+        <h3>⏳ Memuat Peta...</h3>
+        <p>Menyiapkan data wilayah...</p>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="brand-badge">
+        <span class="flag-icon">🇮🇩</span> 
+        <span class="brand-text">Jejak Indonesia</span>
+    </div>
+
+    <button class="fab-toggle" onclick="toggleDashboard()" id="fabBtn">
+        <svg id="iconMenu" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg id="iconClose" style="display:none;" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <div class="info-box hidden-state" id="mainDashboard">
+        <div class="sheet-handle"></div>
+
+        <div class="box-content">
+            <div class="dashboard-mini-header">
+                <span>Statistik Perjalanan</span>
+                <button class="mini-reset-btn" onclick="resetData()">Reset</button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" id="visitedCount">0</span>
+                    <span class="stat-label">Kota</span>
+                </div>
+                <div class="stat-item divider"></div> <div class="stat-item">
+                    <span class="stat-number" id="totalPercent">0%</span>
+                    <span class="stat-label">Nasional</span>
+                </div>
+            </div>
+            
+            <div id="islandContainer" class="island-list"></div>
+        </div>
+    </div>
+
+    <div id="toastNotification" class="toast">
+        <span id="toastIcon">📍</span>
+        <span id="toastMessage">Pesan Notifikasi</span>
+    </div>
+
+    <div class="watermark">laveapp @2025</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

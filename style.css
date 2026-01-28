@@ -1,0 +1,199 @@
+/* --- RESET & GLOBAL --- */
+body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: #f8f9fa; overflow: hidden; }
+#map { height: 100vh; width: 100%; background-color: #eaf6fc; z-index: 1; }
+
+.leaflet-container:focus, .leaflet-interactive:focus, path:focus { outline: none !important; }
+path.leaflet-interactive { transition: fill 0.3s ease, stroke 0.3s ease; }
+
+/* --- LOADING --- */
+#loading { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: white; z-index: 9999; 
+    display: flex; align-items: center; justify-content: center; flex-direction: column; 
+}
+
+/* --- 1. BRAND BADGE (FLOATING TEXT ONLY) --- */
+.brand-badge {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
+    
+    /* Menghapus Background Kotak */
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    
+    display: flex; align-items: center; gap: 8px;
+    cursor: default;
+    pointer-events: none;
+}
+
+.flag-icon { 
+    font-size: 24px; /* Bendera sedikit diperbesar */
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2)); /* Shadow agar bendera pop-up */
+}
+
+.brand-text { 
+    font-size: 18px; 
+    font-weight: 800; 
+    color: #333; 
+    letter-spacing: -0.5px; 
+    font-family: 'Segoe UI', sans-serif;
+    
+    /* Text Shadow Putih agar terbaca di peta warna apapun (Halo Effect) */
+    text-shadow: 
+        2px 2px 0 #fff, -1px -1px 0 #fff,  
+        1px -1px 0 #fff, -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+}
+
+/* --- 2. FLOATING MENU BUTTON (KIRI BAWAH) --- */
+.fab-toggle {
+    position: fixed;
+    bottom: 40px; 
+    left: 20px;
+    z-index: 2000;
+    
+    width: 45px; height: 45px; /* Sedikit diperkecil */
+    border-radius: 50%;
+    background: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    
+    display: flex; align-items: center; justify-content: center;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fab-toggle:active { transform: scale(0.9); }
+/* Saat aktif (silang), putar sedikit */
+.fab-toggle.active { background: #333; color: white; transform: rotate(180deg); }
+
+/* --- 3. DASHBOARD (COMPACT SIZE) --- */
+.info-box {
+    position: absolute;
+    bottom: 95px; /* Posisi di atas tombol menu */
+    left: 20px;
+    
+    /* UKURAN DIPERKECIL */
+    width: 260px; /* Dulu 300px+ */
+    
+    background: rgba(255, 255, 255, 0.96);
+    z-index: 1000;
+    border-radius: 16px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    
+    transform-origin: bottom left;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.info-box.hidden-state {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+}
+
+.box-content {
+    padding: 15px; /* Padding dikurangi */
+    max-height: 45vh; /* Max tinggi dibatasi */
+    overflow-y: auto;
+}
+.box-content::-webkit-scrollbar { width: 0; }
+
+/* Header Kecil */
+.dashboard-mini-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 11px; font-weight: 700; color: #888; text-transform: uppercase;
+}
+.mini-reset-btn {
+    background: #fff5f5; color: #e74c3c; border: none;
+    padding: 3px 8px; border-radius: 10px; font-size: 9px; font-weight: 700; cursor: pointer;
+}
+
+/* Stats Compact */
+.stats-container {
+    display: flex; justify-content: space-between; margin-bottom: 10px;
+    background: #f8f9fa; padding: 10px; border-radius: 10px; 
+}
+.stat-item { text-align: center; width: 48%; }
+.stat-number { display: block; font-size: 18px; /* Font size dikecilkan */ font-weight: 800; color: #333; }
+.stat-label { font-size: 8px; color: #999; text-transform: uppercase; font-weight: 700; margin-top: 2px; }
+
+/* List Pulau Compact */
+.island-item { margin-bottom: 8px; }
+.island-header { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: #555; margin-bottom: 3px; }
+.island-progress-bg { width: 100%; background: #eee; height: 6px; border-radius: 3px; overflow: hidden; }
+.island-progress-fill { height: 100%; width: 0%; transition: width 0.8s ease; border-radius: 3px; }
+
+/* Watermark */
+.watermark {
+    position: fixed; bottom: 15px; width: 100%; text-align: center;
+    font-size: 10px; font-weight: 600; z-index: 500; pointer-events: none;
+    color: rgba(128, 128, 128, 0.25); letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* Responsive Mobile Adjustment */
+@media (max-width: 600px) {
+    .brand-badge { top: 20px; left: 15px; }
+    .brand-text { font-size: 16px; } /* Sedikit lebih kecil di HP */
+    
+    .fab-toggle { left: 15px; bottom: 35px; }
+    
+    .info-box {
+        left: 15px;
+        bottom: 90px;
+        width: 240px; /* Sangat compact di HP */
+    }
+}
+
+/* --- TOAST NOTIFICATION (POPUP ELEGAN) --- */
+.toast {
+    position: fixed;
+    top: 90px; /* Muncul sedikit di bawah Logo Brand */
+    left: 50%;
+    transform: translateX(-50%) scale(0.9); /* Awalnya sedikit kecil */
+    
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 24px;
+    border-radius: 50px; /* Bentuk Pill / Kapsul */
+    
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,1);
+    
+    display: flex; align-items: center; gap: 10px;
+    z-index: 3000;
+    
+    /* State Awal: Tersembunyi */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animasi Bouncy */
+}
+
+/* State Aktif: Muncul */
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1); /* Kembali ke ukuran normal */
+    top: 100px; /* Sedikit turun ke bawah saat muncul */
+}
+
+.toast span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+}
