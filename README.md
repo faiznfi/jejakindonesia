@@ -120,6 +120,7 @@ Distributed under the **MIT License**. See `LICENSE` file for more information.
 **Author:** [Faiz Insani]  
 **GitHub:** [github.com/faiznfi](https://github.com/faiznfi)
 
+Disclaimer: Project dibuat dengan metode #VibeCoding saat gabut nugas kantor 
 <div align="center">
   <small>Made with ❤️ for Indonesian Travelers 🇮🇩</small>
   <br>
